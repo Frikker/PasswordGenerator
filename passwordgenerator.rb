@@ -19,7 +19,7 @@ class PasswordGenerator
     @password_size.times do
       if vowel then password << Glasnie.sample end
       unless  vowel then password << Soglasnie.sample end
-      vowel = !vowel
+      #vowel = !vowel
     end
 
     if @password_registr
@@ -44,5 +44,19 @@ class PasswordGenerator
       password_list << get_password
     end
     password_list
+  end
+
+  def get_password_again(temp=1)
+    while true
+      case temp
+      when 1
+        return true
+      when 2
+        return false
+      else
+        puts 'Вы ввели неверное значение'
+        temp = gets.chomp.to_i
+      end
+    end
   end
 end

@@ -1,20 +1,12 @@
 require './passwordgenerator.rb'
 
-temp = nil
+temp = 1
 G = PasswordGenerator.new
 
-while temp != 2
-  G.set_args
+while true
+  G.get_password_again(temp)? G.set_args : exit
   puts "Ваши пароли:
 #{G.get_password_list}
-Получить пароли с другими параметрами?
-1. Да 2. Нет"
+Вывести новые пароли с другими параметрами?"
   temp = gets.chomp.to_i
-  while temp != 1
-    puts 'Вы ввели неверное значение. Повторите ввод.'
-    temp = gets.chomp.to_i
-    if temp == 2
-      exit
-    end
-  end
 end
