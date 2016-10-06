@@ -22,9 +22,7 @@ class PasswordGenerator
 
   def get_password_list(list_size = @arg.HowMany)
     password_list = []
-    list_size.times do
-      password_list << get_password
-    end
+    list_size.times { password_list << get_password }
     password_list.join(', ')
   end
 
