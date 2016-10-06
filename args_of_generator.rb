@@ -12,28 +12,26 @@ class Args
 
   def Size
     puts 'Пароль какой длины вам нужен?'
-    return gets.chomp.to_i
+    gets.chomp.to_i
   end
 
   def Registr
-  puts 'Нужно ли менять регистр (большая-маленькая буква)?
+    puts 'Нужно ли менять регистр (большая-маленькая буква)?
 1. Да 2. Нет'
-  loop do
-    temp = gets.chomp.to_i
-    case temp
-      when 1
-        return true
-      when 2
-        return false
+    loop do
+      temp = gets.chomp.to_i
+      if temp.between?(1,2)
+        temp == 1 ? t = true : t = false
+        return t
       else
         puts 'Введите верное значение
 1. Да 2. Нет'
+      end
     end
-  end
   end
 
   def HowMany
     puts 'Сколько паролей необходимо вывести?'
-    return gets.chomp.to_i
+    gets.chomp.to_i
   end
 end
