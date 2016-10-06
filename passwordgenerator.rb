@@ -1,18 +1,18 @@
 require './args_of_generator'
 
 class PasswordGenerator
-  Symbols = ('0'..'9').to_a + ('a'..'z').to_a
+  SYMBOLS = ('0'..'9').to_a + ('a'..'z').to_a
 
-  def set_args
+  def SetArgs
     @arg = Args.new
     @password_size = @arg.Size
     @password_registr = @arg.Registr
   end
 
-  def get_password
+  def GetPassword
     password = ''
 
-    @password_size.times { password << Symbols.sample }
+    @password_size.times { password << SYMBOLS.sample }
 
     if @password_registr
       password.each_char { |i| password[i] = password[i].upcase if [true, false].sample }
@@ -20,13 +20,13 @@ class PasswordGenerator
     password
   end
 
-  def get_password_list(list_size = @arg.HowMany)
+  def GetPasswordList(list_size = @arg.HowMany)
     password_list = []
-    list_size.times { password_list << get_password }
+    list_size.times { password_list << GetPassword }
     password_list.join(', ')
   end
 
-  def get_password_again(temp=1)
+  def GetPasswordAgain(temp=1)
     loop do
       if temp.between?(1,2)
         temp == 1 ? t = true : t = false

@@ -3,10 +3,10 @@ require './passwordgenerator.rb'
 temp = 1
 G = PasswordGenerator.new
 
-while true
-  G.get_password_again(temp)? G.set_args : exit
+loop do
+  G.GetPasswordAgain(temp)? G.SetArgs : exit
   puts "Ваши пароли:
-#{G.get_password_list}
+#{G.GetPasswordList}
 Вывести новые пароли с другими параметрами?"
   temp = gets.chomp.to_i
 end
