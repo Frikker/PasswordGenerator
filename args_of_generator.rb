@@ -9,10 +9,6 @@ if Gem.win_platform?
 end
 
 class Args
-  def HowMany
-    puts 'Сколько паролей необходимо вывести?'
-    return gets.chomp.to_i
-  end
 
   def Size
     puts 'Пароль какой длины вам нужен?'
@@ -22,7 +18,7 @@ class Args
   def Registr
   puts 'Нужно ли менять регистр (большая-маленькая буква)?
 1. Да 2. Нет'
-  while true
+  loop do
     temp = gets.chomp.to_i
     case temp
       when 1
@@ -32,24 +28,12 @@ class Args
       else
         puts 'Введите верное значение
 1. Да 2. Нет'
-      end
     end
   end
+  end
 
-  def Num
-  puts 'Добавить к паролю цифры?(будет больше символов - будет лучше защита)
-1. Да 2. Нет'
-  while true
-    temp = gets.chomp.to_i
-    case temp
-      when 1
-        return true
-      when 2
-        return false
-      else
-        puts 'Введите верное значение
-1. Да 2. Нет'
-      end
-    end
+  def HowMany
+    puts 'Сколько паролей необходимо вывести?'
+    return gets.chomp.to_i
   end
 end
